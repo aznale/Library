@@ -1,6 +1,5 @@
 package org.example;
 
-import com.github.javafaker.Faker;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,9 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class PersonTest {
 
-
-    Faker faker = new Faker();
-    private Person person = new Person("Joan", "Serra", 35, "C/Carrer num pis porta");
+    private final Person person = new Person("Joan", "Serra", 35, "C/Carrer num pis porta");
 
     @Test
     public void getPerson(){
