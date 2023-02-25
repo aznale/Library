@@ -1,13 +1,21 @@
 package org.example;
+import org.example.data.DataValues;
+import org.example.manager.UserManager;
 
-/**
- * Hello world!
- *
- */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+
+        UserManager.createUsers(4);
+
+        System.out.println(DataValues.getIdNumber());
+
+        UserManager.createUsers(7);
+
+        System.out.println(DataValues.getIdNumber());
+
+
+
     }
 }

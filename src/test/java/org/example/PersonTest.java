@@ -3,6 +3,7 @@ package org.example;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.example.model.Person;
 import org.junit.jupiter.api.Test;
 
 public class PersonTest {
