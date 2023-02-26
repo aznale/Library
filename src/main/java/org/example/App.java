@@ -1,11 +1,12 @@
 package org.example;
+
 import org.example.data.DataValues;
 import org.example.manager.UserManager;
 
-public class App
-{
-    public static void main( String[] args )
-    {
+import java.util.ArrayList;
+
+public class App {
+    public static void main(String[] args) {
 
         UserManager.createUsers(4);
 
@@ -15,7 +16,10 @@ public class App
 
         System.out.println(DataValues.getIdNumber());
 
-
+        ArrayList<String> languajes = new ArrayList<>();
+        languajes.add("Castellà");
+        languajes.add("Català");
+        System.out.println(languajes);
 
     }
 }

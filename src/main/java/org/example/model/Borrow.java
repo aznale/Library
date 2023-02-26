@@ -19,5 +19,7 @@ public class Borrow {
     private String borrowStatus;
     private Book book;
     private User user;
+    // Add Library code from borrow (assume return in the same library)
+    private String library;
 
 }

@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
-
-    private String bookId;
+    private String bookId; // TODO append idLibrary?
     private String ISBN;
     private String title;
     private String yearPublication;
@@ -17,9 +16,15 @@ public class Book {
     private String language;
     private String publisher;
     private String matter;
+    private boolean onBorrow = true; // For control individual borrow
 
     @Override
     public String toString() {
+        String borrowedMessage = "On borrow";
+        if (!this.onBorrow) {
+            borrowedMessage = "Borrowed";
+        }
+
         return "Book{" +
                 "bookId='" + bookId + '\'' +
                 ", ISBN='" + ISBN + '\'' +
@@ -29,6 +34,7 @@ public class Book {
                 ", language='" + language + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", matter='" + matter + '\'' +
+                ", onBorrow='" + borrowedMessage +
                 '}';
     }
 }
