@@ -15,7 +15,7 @@ public class UserManager {
     public static void createUsers(int usersNumber) {
         Faker faker = new Faker();
         User newUser;
-        int newMaxId = 0;
+        int sumNewMaxId = DataValues.getIdNumber();
 
         for (int i = 0; i < usersNumber; i++) {
             newUser = new User(
@@ -26,17 +26,15 @@ public class UserManager {
                     ""
             );
 
-            String userId = String.format("%04d", DataValues.getIdNumber());
+            newUser.setIdMember(String.format("%04d",sumNewMaxId));
+            sumNewMaxId++;
 
-            newUser.setIdMember(userId);
-            newMaxId = Integer.parseInt(userId);
-
-            users.put(userId, newUser);
+            users.put(newUser.getIdMember(), newUser);
             System.out.println(newUser);
 
         }
 
-        DataValues.setIdNumber(newMaxId);
+        DataValues.setIdNumber(sumNewMaxId);
     }
 
 

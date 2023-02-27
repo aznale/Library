@@ -3,12 +3,11 @@ package org.example;
 import org.example.model.Book;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BookTest {
 
-    private final Book book = new Book("Acconci,Vito -6574839664-", "978-84-343-0889-3","Vito acconci: escritos, obras y proyectos", "2001","Vito Acconci","Castellà","Polígrafa Artbooks","Contemporary Art");
+    private final Book book = new Book("Acconci,Vito -6574839664-", "978-84-343-0889-3","Vito acconci: escritos, obras y proyectos", "2001","Vito Acconci","Castellà","Polígrafa Artbooks","Contemporary Art",true);
     //https://www.culturaydeporte.gob.es/webISBN/tituloDetalle.do?sidTitul=1115201&action=busquedaInicial&noValidating=true&POS=0&MAX=50&TOTAL=0&layout=busquedaisbn&language=es&prev_layout=busquedaisbn
 
     @Test
@@ -21,7 +20,8 @@ public class BookTest {
                 ()-> assertEquals("Vito Acconci", book.getAuthor()),
                 ()-> assertEquals("Castellà", book.getLanguage()),
                 ()-> assertEquals("Polígrafa Artbooks", book.getPublisher()),
-                ()-> assertEquals("Contemporary Art", book.getMatter())
+                ()-> assertEquals("Contemporary Art", book.getMatter()),
+                ()-> assertTrue(book.isAvailable())
 
         );
 
@@ -41,6 +41,7 @@ public class BookTest {
         book.setLanguage("set_Language");
         book.setPublisher("set_Publisher");
         book.setMatter("set_Matter");
+        book.setAvailable(false);
 
         assertAll("book",
                 ()-> assertEquals("set_bookId", book.getBookId()),
@@ -50,7 +51,8 @@ public class BookTest {
                 ()-> assertEquals("set_Author", book.getAuthor()),
                 ()-> assertEquals("set_Language", book.getLanguage()),
                 ()-> assertEquals("set_Publisher", book.getPublisher()),
-                ()-> assertEquals("set_Matter", book.getMatter())
+                ()-> assertEquals("set_Matter", book.getMatter()),
+                ()-> assertFalse(book.isAvailable())
 
         );
 

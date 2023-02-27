@@ -16,12 +16,12 @@ public class Book {
     private String language;
     private String publisher;
     private String matter;
-    private boolean onBorrow = true; // For control individual borrow
+    private boolean available = true; // For control individual borrow
 
     @Override
     public String toString() {
-        String borrowedMessage = "On borrow";
-        if (!this.onBorrow) {
+        String borrowedMessage = "Available";
+        if (!this.available) {
             borrowedMessage = "Borrowed";
         }
 
@@ -34,7 +34,7 @@ public class Book {
                 ", language='" + language + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", matter='" + matter + '\'' +
-                ", onBorrow='" + borrowedMessage +
+                ", available='" + borrowedMessage +
                 '}';
     }
 }
