@@ -3,6 +3,7 @@ package org.example.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class DataValues {
 
@@ -27,6 +28,7 @@ public class DataValues {
         idUser = num;
     }
 
+
     public static int getIdBook() {
         return idBook;
     }
@@ -36,10 +38,17 @@ public class DataValues {
     }
 
 
-
     public static String getLanguage(int index){
         return language.get(index);
     }
 
+
+    public static String createUUID(){
+        UUID uuid = UUID.randomUUID();
+        //System.out.println("UUID generated - " + uuid);
+        //System.out.println("UUID Version - " + uuid.version());
+        return uuid.toString();
+
+    }
 
 }

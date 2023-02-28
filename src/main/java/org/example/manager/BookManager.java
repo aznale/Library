@@ -39,4 +39,6 @@ public class BookManager {
 
         DataValues.setIdBook(sumNewMaxId);
     }
+
+
 }
