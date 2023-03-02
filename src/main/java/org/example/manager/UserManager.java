@@ -1,7 +1,7 @@
 package org.example.manager;
 
 import com.github.javafaker.Faker;
-import org.example.data.DataValues;
+import org.example.utils.DataValues;
 import org.example.model.User;
 
 import java.util.HashMap;

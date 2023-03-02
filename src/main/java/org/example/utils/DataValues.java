@@ -1,4 +1,4 @@
-package org.example.data;
+package org.example.utils;
 
 
 import java.util.ArrayList;
@@ -28,6 +28,7 @@ public class DataValues {
         idUser = num;
     }
 
+
     public static int getIdBook() {
         return idBook;
     }
@@ -35,7 +36,6 @@ public class DataValues {
     public static void setIdBook(int num) {
         idBook = num;
     }
-
 
 
     public static String getLanguage(int index){
@@ -50,5 +50,13 @@ public class DataValues {
 
     }
 
+
+    // https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html
+    public static String createUUID(){
+        UUID uuid = UUID.randomUUID();
+        //System.out.println("UUID generated - " + uuid);
+        //System.out.println("UUID Version - " + uuid.version());
+        return uuid.toString();
+    }
 
 }
