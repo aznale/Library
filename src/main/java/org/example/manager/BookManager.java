@@ -71,24 +71,78 @@ public class BookManager {
     }
 
     public static void updateBook(Scanner reader) {
-        System.out.println("UPDATE Book: \n");
-        String bookToUpdate = Utils.askString(reader, "Book to update: ");
+        String bookToUpdate = Utils.askString(reader, "Book to update: \n");
 
-        if (!bookToUpdate.isEmpty()) {
-            System.out.println("Book found: \n" + books.get(bookToUpdate));
-            while (true){
-                String parameterToChange = Utils.askString(reader,"Parameter to change (e.g: author) or write exit: \n)");
+        if (books.containsKey(bookToUpdate)) {
+            System.out.println(books.get(bookToUpdate));
 
-                switch (parameterToChange){
-                    case 1: parameterToChange = "bookId";
+            while (true) {
+                String parameterToChange = Utils.askString(reader, "\nEnter the parameter number to change or write exit: \n");
 
+
+                switch (parameterToChange) {
+                    case "exit" -> {
+                        return;
+                    }
+                    case "1" -> System.out.println("Book Id is never change");
+                    case "2" -> {
+                        System.out.println("2 - ISBN: " + books.get(bookToUpdate).getISBN());
+                        String setISBN = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setISBN(setISBN);
+                        System.out.println("Updated successfully.\n2 - ISBN: " + books.get(bookToUpdate).getISBN());
+                    }
+                    case "3" -> {
+                        System.out.println("3 - Title: " + books.get(bookToUpdate).getTitle());
+                        String setTitle = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setTitle(setTitle);
+                        System.out.println("Updated successfully.\n3 - Title: " + books.get(bookToUpdate).getTitle());
+                    }
+                    case "4" -> {
+                        System.out.println("4 - Year Publication: " + books.get(bookToUpdate).getYearPublication());
+                        String setyearpublication = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setYearPublication(setyearpublication);
+                        System.out.println("Updated successfully.\n4 - Year Publication: " + books.get(bookToUpdate).getYearPublication());
+                    }
+                    case "5" -> {
+                        System.out.println("5 - Author: " + books.get(bookToUpdate).getAuthor());
+                        String setAuthor = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setAuthor(setAuthor);
+                        System.out.println("Updated successfully.\n5 - Author: " + books.get(bookToUpdate).getAuthor());
+                    }
+                    case "6" -> {
+                        System.out.println("6 - Language: " + books.get(bookToUpdate).getLanguage());
+                        String setLanguage = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setLanguage(setLanguage);
+                        System.out.println("Updated successfully.\n6 - Language: " + books.get(bookToUpdate).getLanguage());
+                    }
+                    case "7" -> {
+                        System.out.println("7 - Publisher: " + books.get(bookToUpdate).getPublisher());
+                        String setPublisher = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setPublisher(setPublisher);
+                        System.out.println("Updated successfully.\n7 - Publisher: " + books.get(bookToUpdate).getPublisher());
+                    }
+                    case "8" -> {
+                        System.out.println("8 - Matter: " + books.get(bookToUpdate).getMatter());
+                        String setMatter = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setMatter(setMatter);
+                        System.out.println("Updated successfully.\n8 - Matter: " + books.get(bookToUpdate).getMatter());
+                    }
+                    case "9" -> System.out.println("Change this parameter from the borrows section");
+                    default -> System.out.println("This parameter doesn't exist");
                 }
             }
-
-
-
         } else {
             System.out.println(bookToUpdate + ": This book doesn't Exist");
         }
+    }
+
+    public static void getAllBooks(){
+        System.out.println("All books in the Library:\n");
+        int i = 0;
+        for (String book: books.keySet()){
+            System.out.println(books.get(book));
+            i++;
+        }
+        System.out.println("Total Books: " + i);
     }
 }

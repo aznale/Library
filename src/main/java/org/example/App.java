@@ -28,11 +28,15 @@ public class App {
         BorrowManager.borrowStatus();
         System.out.println(" ");
 
-        BookManager.createBookToStorage(reader);
-        BorrowManager.borrowStatus();
+        //BookManager.createBookToStorage(reader);
+        //BorrowManager.borrowStatus();
 
-        BookManager.deleteBook(reader);
-        BorrowManager.borrowStatus();
+        //BookManager.deleteBook(reader);
+        //BorrowManager.borrowStatus();
+
+        //BookManager.updateBook(reader);
+
+        BookManager.getAllBooks();
 
 
 

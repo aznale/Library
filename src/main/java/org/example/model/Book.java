@@ -27,15 +27,15 @@ public class Book {
             borrowedMessage = "Borrowed";
         }
 
-        return  "bookId = " + bookId + '\n' +
-                "ISBN = " + ISBN + '\n' +
-                "title = " + title + '\n' +
-                "yearPublication = " + yearPublication + '\n' +
-                "author = " + author + '\n' +
-                "language = " + language + '\n' +
-                "publisher = " + publisher + '\n' +
-                "matter = " + matter + '\n' +
-                "available = " + borrowedMessage +
+        return  "1 - Book Id: " + bookId + '\n' +
+                "2 - ISBN: " + ISBN + '\n' +
+                "3 - Title: " + title + '\n' +
+                "4 - Year Publication: " + yearPublication + '\n' +
+                "5 - Author: " + author + '\n' +
+                "6 - Language: " + language + '\n' +
+                "7 - Publisher: " + publisher + '\n' +
+                "8 - Matter: " + matter + '\n' +
+                "9 - Available: " + borrowedMessage +
                 '\n';
     }
 }
