@@ -23,12 +23,10 @@ public class BorrowManager {
             ArrayList<String> booksList = new ArrayList<>(BookManager.books.keySet());
             String book = booksList.get(faker.random().nextInt(0,booksList.size()-1));
 
-
             ArrayList<String> usersList = new ArrayList<>(UserManager.users.keySet());
             String user = usersList.get(faker.random().nextInt(0, usersList.size()-1));
 
             String idBorrow = DataValues.createUUID();
-
 
             newBorrow = new Borrow(
                     idBorrow,

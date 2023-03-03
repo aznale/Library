@@ -99,8 +99,8 @@ public class BookManager {
                     }
                     case "4" -> {
                         System.out.println("4 - Year Publication: " + books.get(bookToUpdate).getYearPublication());
-                        String setyearpublication = Utils.askString(reader, "Change to: ");
-                        books.get(bookToUpdate).setYearPublication(setyearpublication);
+                        String setYearPublication = Utils.askString(reader, "Change to: ");
+                        books.get(bookToUpdate).setYearPublication(setYearPublication);
                         System.out.println("Updated successfully.\n4 - Year Publication: " + books.get(bookToUpdate).getYearPublication());
                     }
                     case "5" -> {
