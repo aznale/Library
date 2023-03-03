@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.data.DataValues;
+import org.example.utils.DataValues;
 import org.example.manager.BookManager;
 import org.example.manager.UserManager;
 
