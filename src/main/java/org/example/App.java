@@ -1,4 +1,6 @@
 package org.example;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.example.manager.BookManager;
 import org.example.manager.BorrowManager;
@@ -6,9 +8,16 @@ import org.example.manager.UserManager;
 
 import java.util.Scanner;
 
+import static java.lang.System.out;
+
+@SpringBootApplication
 public class App {
     public static void main(String[] args) {
 
+        SpringApplication.run(App.class, args);
+        out.print("Executed Main Application");
+
+        /*
         Scanner reader = new Scanner(System.in);
 
         System.out.println("----- Users: -----");
@@ -36,7 +45,7 @@ public class App {
 
         //BookManager.updateBook(reader);
 
-        BookManager.getAllBooks();
+        BookManager.getAllBooks();*/
 
 
 

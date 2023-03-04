@@ -1,8 +1,8 @@
 package org.example.manager;
 
 import com.github.javafaker.Faker;
-import org.example.utils.DataValues;
 import org.example.model.Book;
+import org.example.utils.DataValues;
 import org.example.utils.Utils;
 
 import java.util.HashMap;
