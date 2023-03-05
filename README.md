@@ -1,4 +1,12 @@
 # Library
+
 ## Lab#SE03-1 
 
-1. Create application actors and unit tests.
+Library project for control borrows and users manager with:
+
+- Maven
+- Javafaker
+- Lombok
+- Spring boot
+- H2
+

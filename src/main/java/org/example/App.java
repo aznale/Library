@@ -15,7 +15,7 @@ public class App {
     public static void main(String[] args) {
 
         SpringApplication.run(App.class, args);
-        out.print("Executed Main Application");
+        out.println("Executed Main Application");
 
         /*
         Scanner reader = new Scanner(System.in);
