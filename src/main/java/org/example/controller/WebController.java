@@ -9,6 +9,6 @@ public class WebController {
 
     @RequestMapping("/helloWeb")
     public String helloHandler(){
-        return "hello.html";
+        return "hello";
     }
 }

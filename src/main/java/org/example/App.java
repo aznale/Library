@@ -5,23 +5,30 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.example.manager.BookManager;
 import org.example.manager.BorrowManager;
 import org.example.manager.UserManager;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
 @SpringBootApplication
+@RestController
 public class App {
+
+    @RequestMapping("/")
+    String home(){
+        return "Main page Library";
+    }
     public static void main(String[] args) {
 
         SpringApplication.run(App.class, args);
-        out.println("Executed Main Application");
 
         /*
         Scanner reader = new Scanner(System.in);
 
         System.out.println("----- Users: -----");
-        UserManager.createUsers(5);
+        UserManager.createUsers(5);00
         //System.out.println(DataValues.getIdNumber());
         System.out.println(" ");
 

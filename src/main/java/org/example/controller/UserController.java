@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @GetMapping("/helloRest/{user}")
+    /*@GetMapping("/helloRest/{user}")
     public String helloWorld(@PathVariable String user){
         return "Welcome to the jungle " + user + "!!";
+    }*/
+
+    @GetMapping("/helloRest")
+    public String helloWorld(){
+        return "Welcome to the jungle!";
     }
 
     @GetMapping("/sumar/{numA}/{numB}")

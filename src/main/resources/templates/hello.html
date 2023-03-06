@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title spring proof</title>
 </head>
 <body>
 
 <h2>Start your engines!!!</h2>
+<p th:text="'sfsfvsvs'">text</p>
 
-<button>User</button>
+<button th:href="@{/helloRest}">User</button>
 <button>Librarian</button>
+<p><a th:href="@{/helloRest}" class="w3-button w3-black">Back books</a></p>
 
 </body>
 </html>
