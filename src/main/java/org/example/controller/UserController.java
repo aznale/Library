@@ -1,18 +1,12 @@
 package org.example.controller;
 
 import com.github.javafaker.Faker;
-import org.example.manager.BookManager;
-import org.example.model.Book;
-import org.example.utils.DataValues;
 import org.example.model.User;
+import org.example.utils.DataValues;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -43,7 +37,7 @@ public class UserController {
                     ""
             );
 
-            newUser.setIdMember(String.format("%04d",sumNewMaxId));
+            newUser.setIdMember(String.format("%04d", sumNewMaxId));
             sumNewMaxId++;
 
             users.put(newUser.getIdMember(), newUser);
@@ -55,19 +49,18 @@ public class UserController {
     }
 
 
-
     @GetMapping("/users")
-    public Map<String, User> listingAllUsers(){
-        if(users.isEmpty()){
+    public Map<String, User> listingAllUsers() {
+        if (users.isEmpty()) {
             createUsers(10);
         }
         return users;
     }
 
     @GetMapping("/users/{getUser}")
-    public User getUser(@PathVariable String getUser){
-        for (Map.Entry<String,User> user: users.entrySet()) {
-            if(user.getValue().getName().equalsIgnoreCase(getUser)){
+    public User getUser(@PathVariable String getUser) {
+        for (Map.Entry<String, User> user : users.entrySet()) {
+            if (user.getValue().getName().equalsIgnoreCase(getUser)) {
                 return user.getValue();
             }
         }
@@ -75,17 +68,24 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{deleteUser}")
-    public void deleteUser(@PathVariable String deleteUser){
-        for (Map.Entry<String,User> user: users.entrySet()) {
-            if(user.getValue().getName().equalsIgnoreCase(deleteUser)){
+    public void deleteUser(@PathVariable String deleteUser) {
+        for (Map.Entry<String, User> user : users.entrySet()) {
+            if (user.getValue().getName().equalsIgnoreCase(deleteUser)) {
                 users.remove(user.getKey());
             }
         }
     }
 
+    @PostMapping("/users")
+    public void createUser(@RequestBody User user) {
+        String id = String.valueOf(DataValues.getIdNumber());
+        user.setIdMember(String.format("%04d",Integer.parseInt(id)));
+        users.put(id, user);
+        int newId = Integer.parseInt(id + 1);
+        DataValues.setIdNumber(newId);
+    }
+
     //https://www.youtube.com/watch?v=RfLx9RYjJA8&t=2005s
-
-
 
 
 }
