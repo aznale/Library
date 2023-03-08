@@ -16,13 +16,6 @@ import static java.lang.System.out;
 @RestController
 public class App {
 
-    @RequestMapping("/")
-    String home(){
-        return "Main page Library\n " +
-                "/users\n " +
-                "/users/{getUser}\n" +
-                "/users/{deleteUser}\n";
-    }
     public static void main(String[] args) {
 
         SpringApplication.run(App.class, args);
