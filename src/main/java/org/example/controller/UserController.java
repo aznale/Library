@@ -1,7 +1,10 @@
 package org.example.controller;
 
 import org.example.model.User;
+import org.example.service.UserService;
 import org.example.utils.DataValues;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,16 +13,25 @@ import java.util.Map;
 import static org.example.manager.UserManager.createUsers;
 import static org.example.manager.UserManager.users;
 
-@RestController
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
-    @GetMapping("/users")
+    @Autowired
+    UserService userService;
+
+    /*@GetMapping("/users")
     public Map<String, User> listingAllUsers(Model model) {
         if (users.isEmpty()) {
             createUsers(10);
         }
         model.addAttribute("listAllUsers", users);
         return users;
+    }*/
+    @RequestMapping("/users")
+    public String getAllUsers(Model model){
+        model.addAttribute("users", UserService.getAllUsers());
+        return "user/users";
     }
 
     @GetMapping("/users/{getUser}")

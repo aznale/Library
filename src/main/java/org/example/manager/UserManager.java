@@ -1,7 +1,6 @@
 package org.example.manager;
 
 import com.github.javafaker.Faker;
-import lombok.Getter;
 import org.example.utils.DataValues;
 import org.example.model.User;
 
@@ -36,10 +35,4 @@ public class UserManager {
 
         DataValues.setIdNumber(sumNewMaxId);
     }
-
-    public static Map<String, User> getAllUsers(){
-        return users;
-    }
-
-
 }
