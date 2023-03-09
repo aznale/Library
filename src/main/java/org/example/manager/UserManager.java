@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class UserManager {
 
-    public static Map<String, User> users = new HashMap<>();
+    //public static Map<String, User> users = new HashMap<>();
 
-    public static void createUsers(int usersNumber) {
+    public static void createUsers(Map<String,User> usersToMap, int usersNumber) {
         Faker faker = new Faker();
         User newUser;
         int sumNewMaxId = DataValues.getIdNumber();
@@ -28,8 +28,8 @@ public class UserManager {
             newUser.setIdMember(String.format("%04d",sumNewMaxId));
             sumNewMaxId++;
 
-            users.put(newUser.getIdMember(), newUser);
-            System.out.println(newUser);
+            usersToMap.put(newUser.getIdMember(), newUser);
+            //System.out.println(newUser);
 
         }
 

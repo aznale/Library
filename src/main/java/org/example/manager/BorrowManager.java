@@ -1,6 +1,7 @@
 package org.example.manager;
 
 import com.github.javafaker.Faker;
+import org.example.service.UserService;
 import org.example.utils.DataValues;
 import org.example.model.Book;
 import org.example.model.Borrow;
@@ -23,7 +24,7 @@ public class BorrowManager {
             ArrayList<String> booksList = new ArrayList<>(BookManager.books.keySet());
             String book = booksList.get(faker.random().nextInt(0,booksList.size()-1));
 
-            ArrayList<String> usersList = new ArrayList<>(UserManager.users.keySet());
+            ArrayList<String> usersList = new ArrayList<>(UserService.users.keySet());
             String user = usersList.get(faker.random().nextInt(0, usersList.size()-1));
 
             String idBorrow = DataValues.createUUID();
@@ -35,7 +36,7 @@ public class BorrowManager {
                     null,
                     "Borrowed",
                     BookManager.books.get(book),
-                    UserManager.users.get(user),
+                    UserService.users.get(user),
                     "059"
 
             );

@@ -5,31 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Manager View</title>
+
+    <style>
+    td,h2{
+        text-align:center;
+        padding:3px;
+    }
+    table{
+    margin: 0 auto;
+    }
+
+
+    </style>
+
 </head>
 <body>
+
+<div id="corps">
+
 
 <h2>User Manager View</h2>
 
 <table>
     <tr>
-        <td>Name</td>
-        <td>Surname</td>
-        <td>Age</td>
-        <td>Address</td>
-        <td>Id Member</td>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Id Member</th>
+        <th>Delete</th>
+        <th>Update</th>
+
     </tr>
-    <tr th:each="user:${listAllUsers}">
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.surname}"></td>
-        <td th:text="${user.age}"></td>
-        <td th:text="${user.address}"></td>
-        <td th:text="${user.idMember}"></td>
-
-
+    <tr th:each="user:${users}">
+        <td th:text="${user.value.name}"></td>
+        <td th:text="${user.value.surname}"></td>
+        <td th:text="${user.value.age}"></td>
+        <td th:text="${user.value.address}"></td>
+        <td th:text="${user.value.idMember}"></td>
+        <td>
+            <button>Delete</button>
+        </td>
+        <td>
+            <button>Update</button>
+        </td>
 
     </tr>
 </table>
 
+<a href="/user/emptyCreateUser">
+    <button>Create User</button>
+</a>
 
+</div>
 </body>
 </html>
