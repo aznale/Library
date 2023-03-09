@@ -29,4 +29,8 @@ public class UserService {
         DataValues.setIdNumber(sumNewMaxId+1);
 
     }
+
+    public static User getUser(String id) {
+        return users.get(id);
+    }
 }

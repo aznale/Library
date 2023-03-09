@@ -33,5 +33,17 @@ public class UserController {
         return "redirect:users";
     }
 
+    @RequestMapping("/userCard")
+    public String userCard(@RequestParam("idUser") String id,Model model){
+        User userFound = UserService.getUser(id);
+        if(userFound != null){
+            model.addAttribute("userSendToForm",userFound);
+            model.addAttribute("messsage","User Found");
+        }else{
+            model.addAttribute("message","User not found");
+        }
+        return "editUser";
+    }
+
 
 }
