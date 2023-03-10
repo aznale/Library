@@ -17,7 +17,7 @@ public class UserService {
         UserManager.createUsers(users,20);
     }
 
-    public static Map<String, User> getAllUsers() {
+    public Map<String, User> getAllUsers() {
         return users;
     }
 
@@ -30,7 +30,17 @@ public class UserService {
 
     }
 
-    public static User getUser(String id) {
+    public User getUser(String id) {
         return users.get(id);
+    }
+
+
+    public void updateUser(String id, User user) {
+        user.setIdMember(id);
+        users.put(id,user);
+    }
+
+    public void delateUser(String id) {
+        users.remove(id);
     }
 }

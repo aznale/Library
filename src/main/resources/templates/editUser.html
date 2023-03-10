@@ -21,7 +21,7 @@
 
 <h2>Edit User</h2>
 
-<form action="#" th:object="${userSendToForm}" method="post">
+<form th:action="@{updateUser/{idUser}(idUser=${userSendToForm.idMember})}" th:object="${userSendToForm}" method="post">
 
     <label for="name">Name</label>
     <input type="text" name="name" id="nameId" th:field="*{name}">

@@ -27,7 +27,6 @@
 
 <div id="corps">
 
-
     <h2>User Manager View</h2>
 
     <table>
@@ -48,7 +47,9 @@
             <td th:text="${user.value.address}"></td>
             <td th:text="${user.value.idMember}"></td>
             <td>
+                <a th:href="@{deleteUser(idUser=${user.value.idMember})}">
                 <button>Delete</button>
+                </a>
             </td>
             <td>
                 <a th:href="@{userCard(idUser=${user.value.idMember})}">
