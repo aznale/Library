@@ -1,6 +1,7 @@
 package org.example.manager;
 
 import com.github.javafaker.Faker;
+import org.example.service.BookService;
 import org.example.service.UserService;
 import org.example.utils.DataValues;
 import org.example.model.Book;
@@ -21,7 +22,7 @@ public class BorrowManager {
         for (int i = 0; i <borrowsNumber; i++) {
             LocalDateTime date = LocalDateTime.now();
 
-            ArrayList<String> booksList = new ArrayList<>(BookManager.books.keySet());
+            ArrayList<String> booksList = new ArrayList<>(BookService.books.keySet());
             String book = booksList.get(faker.random().nextInt(0,booksList.size()-1));
 
             ArrayList<String> usersList = new ArrayList<>(UserService.users.keySet());
@@ -35,13 +36,13 @@ public class BorrowManager {
                     date.plusDays(30),
                     null,
                     "Borrowed",
-                    BookManager.books.get(book),
+                    BookService.books.get(book),
                     UserService.users.get(user),
                     "059"
 
             );
 
-            BookManager.books.get(book).setAvailable(false); // on proof
+            BookService.books.get(book).setAvailable(false); // on proof
 
             borrows.put(idBorrow,newBorrow);
             System.out.println(newBorrow);
@@ -53,7 +54,7 @@ public class BorrowManager {
     public static void borrowStatus(){
         System.out.println("----- Borrow Status: -----");
         // https://parzibyte.me/blog/2020/01/07/hashmap-java-tutorial-ejemplos/
-        for (Map.Entry<String, Book> book : BookManager.books.entrySet()) {
+        for (Map.Entry<String, Book> book : BookService.books.entrySet()) {
             //System.out.print(book.getKey() + "\n");
             if (book.getValue().isAvailable()){
                 System.out.println("Available: " + book.getKey());

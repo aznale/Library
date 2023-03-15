@@ -38,7 +38,7 @@ public class UserController {
         User userFound = userService.getUser(id);
         if (userFound != null) {
             model.addAttribute("userSendToForm", userFound);
-            model.addAttribute("messsage", "User Found");
+            model.addAttribute("messsage", "User found");
         } else {
             model.addAttribute("message", "User not found");
         }
@@ -54,19 +54,16 @@ public class UserController {
             //System.out.println(userService.getAllUsers());
             return "redirect:/user/users";
         }
-        return "user/userNotFound";
+        return "user/userNotFound";// TODO implement userNotFound and this template
     }
 
     @RequestMapping("/deleteUser")
     public String deleteUser(@RequestParam("idUser") String id) {
         User userFound = userService.getUser(id);
-        System.out.println(userFound);
-        System.out.println("Hola");
         if (userFound != null) {
             userService.delateUser(id);
-            System.out.println(userService.getAllUsers());
             return "redirect:/user/users";
         }
-        return "user/userNotFound";
+        return "user/userNotFound"; // TODO implement userNotFound and this template
     }
 }
