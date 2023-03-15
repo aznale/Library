@@ -5,11 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Manager View</title>
-
+    <link href="styles.css" rel="stylesheet" type="text/css">
     <style>
     .centerButtons,h2,th{
-        text-align:center;
-        padding:8px;
+    text-align:center;
+    padding:6px;
+    }
+
+    td{
+    padding:3px;
+    }
+
+    .center{
+    text-align: center;
     }
 
     button{
@@ -18,7 +26,21 @@
 
     table{
     margin: 0 auto;
+    border-collapse: collapse;
+
     }
+
+    /*tr:nth-child(even) {background-color: whitesmoke;}*/
+
+    th {
+    background-color: whitesmoke;
+    color: darkblue;
+    }
+
+    th, td {
+    border-bottom: 1px solid #ddd;
+    }
+
 
     </style>
 </head>
@@ -40,19 +62,20 @@
             <th>Matter</th>
             <th>Available</th>
             <!--<th>Available</th>-->
+            <th colspan="2">Operation</th>
 
         </tr>
         <tr th:each="book:${books}">
             <td th:text="${book.value.bookId}"></td>
             <td th:text="${book.value.ISBN}"></td>
             <td th:text="${book.value.title}"></td>
-            <td th:text="${book.value.yearPublication}"></td>
+            <td class="center" th:text="${book.value.yearPublication}"></td>
             <td th:text="${book.value.author}"></td>
             <td th:text="${book.value.language}"></td>
             <td th:text="${book.value.publisher}"></td>
             <td th:text="${book.value.matter}"></td>
             <!--<td th:text="${book.value.available}"></td>-->
-            <td><input type="checkbox" th:checked="${book.value.available}"></td>
+            <td class="center"><input type="checkbox" th:checked="${book.value.available}"></td>
             <td>
                 <a th:href="@{deleteBook(idBook=${book.value.bookId})}">
                     <button>Delete</button>
