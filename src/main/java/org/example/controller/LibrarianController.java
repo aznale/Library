@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.model.Librarian;
+import org.example.model.User;
 import org.example.service.LibrarianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,17 @@ public class LibrarianController {
     public String getLibrarians(Model model){
         model.addAttribute("librarians", librarianService.getLibrarians());
         return "librarianManagerView";
+    }
+
+    @RequestMapping("/emptyCreateLibrarian")
+    public String emptyCreateLibrarian() {
+        return "createLibrarian";
+    }
+
+    @RequestMapping("/createLibrarian")
+    public String createLibrarian(Librarian librarian) {
+        librarianService.createLibrarian(librarian);
+        return "redirect:librarians";
     }
 
     @RequestMapping("/librarianCard")

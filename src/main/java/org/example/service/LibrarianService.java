@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.manager.LibrarianManager;
 import org.example.model.Librarian;
+import org.example.utils.DataValues;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +19,14 @@ public class LibrarianService {
 
     public Map<String,Librarian> getLibrarians(){
         return librarians;
+    }
+
+    public void createLibrarian(Librarian librarian){
+        int sumNewMaxId = DataValues.getIdLibrarian();
+        String stringSumNewMaxId = String.format("%03d",sumNewMaxId);
+        librarian.setIdLibrarian(stringSumNewMaxId);
+        librarians.put(stringSumNewMaxId,librarian);
+        DataValues.setIdLibrarian(sumNewMaxId+1);
     }
 
     public Librarian getLibrarian(String id){

@@ -1,6 +1,16 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     .centerButtons,h2,th{
     text-align:center;
     padding:6px;
+    }
+
+    h2{
+    margin: 10px;
     }
 
     td{
@@ -30,4 +40,19 @@
 
     th, td {
     border-bottom: 1px solid #ddd;
+    }
+
+
+    .home {
+    height: 100vh;
+    min-height:600px;
+    }
+
+    .home>div{
+      position: absolute;
+      top:30%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      max-width: 50%;
+      text-align: center;
     }

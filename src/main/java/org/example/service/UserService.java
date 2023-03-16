@@ -27,7 +27,6 @@ public class UserService {
         user.setIdMember(stringSumNewMaxId);
         users.put(stringSumNewMaxId,user);
         DataValues.setIdNumber(sumNewMaxId+1);
-
     }
 
     public User getUser(String id) {
