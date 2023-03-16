@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>User Manager View</title>
+    <title>Librarian Manager View</title>
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
-
 
 </head>
 <body>
 
 <div>
 
-    <h2>User Manager View</h2>
+    <h2>Librarian Manager View</h2>
 
     <table>
         <tr>
@@ -21,24 +20,24 @@
             <th>Surname</th>
             <th>Age</th>
             <th>Address</th>
-            <th>Id Member</th>
+            <th>Id Librarian</th>
             <th>Delete</th>
             <th>Update</th>
 
         </tr>
-        <tr th:each="user:${users}">
-            <td th:text="${user.value.name}"></td>
-            <td th:text="${user.value.surname}"></td>
-            <td th:text="${user.value.age}"></td>
-            <td th:text="${user.value.address}"></td>
-            <td th:text="${user.value.idMember}"></td>
+        <tr th:each="librarian:${librarians}">
+            <td th:text="${librarian.value.name}"></td>
+            <td th:text="${librarian.value.surname}"></td>
+            <td th:text="${librarian.value.age}"></td>
+            <td th:text="${librarian.value.address}"></td>
+            <td th:text="${librarian.value.idLibrarian}"></td>
             <td>
-                <a th:href="@{deleteUser(idUser=${user.value.idMember})}">
+                <a th:href="@{deleteLibrarian(idLibrarian=${librarian.value.idLibrarian})}">
                     <button>Delete</button>
                 </a>
             </td>
             <td>
-                <a th:href="@{userCard(idUser=${user.value.idMember})}">
+                <a th:href="@{librarianCard(idLibrarian=${librarian.value.idLibrarian})}">
                     <button>Update</button>
                 </a>
             </td>
@@ -58,5 +57,6 @@
     </div>
 
 </div>
+
 </body>
 </html>

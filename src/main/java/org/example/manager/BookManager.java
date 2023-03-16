@@ -68,7 +68,7 @@ public class BookManager {
         bookToMap.remove(bookToDelete);
         System.out.println("----- Book deleted successfully: -----");
 
-    }*/
+
 
     public static void updateBook(Map<String,Book> bookToMap,Scanner reader) {
         String bookToUpdate = Utils.askString(reader, "Book to update: \n");
@@ -134,7 +134,7 @@ public class BookManager {
         } else {
             System.out.println(bookToUpdate + ": This book doesn't Exist");
         }
-    }
+    }}*/
 
     public static void getAllBooks(Map<String,Book> bookToMap){
         System.out.println("All books in the Library:\n");

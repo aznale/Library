@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Book</title>
+    <style>
+
+    #submit{
+    color:blue;
+    }
+
+    form,h2{
+    text-align:center;
+    }
+
+    </style>
+</head>
+<body>
+
+<h2>Create Book</h2>
+
+<form action="/book/createBook">
+
+    <label for="ISBN">ISBN</label>
+    <input type="text" name="ISBN" id="ISBNId">
+    <br>
+    <label for="title">Title</label>
+    <input type="text" name="title" id="titleId">
+    <br>
+    <label for="yearPublication">Age</label>
+    <input type="text" name="yearPublication" id="yearPublicationId">
+    <br>
+    <label for="author">Author</label>
+    <input type="text" name="author" id="authorId">
+    <br>
+    <label for="language">Language</label>
+    <input type="text" name="language" id="languageId">
+    <br>
+    <label for="publisher">Publisher</label>
+    <input type="text" name="publisher" id="publisherId">
+    <br>
+    <label for="matter">Matter</label>
+    <input type="text" name="matter" id="matterId">
+    <br>
+    <label for="available">Available</label>
+    <input type="checkbox" name="available" id="availableId" checked disabled>
+    <br>
+    <input type="submit" value="Update Book" id="submit">
+
+</form>
+
+</body>
+</html>

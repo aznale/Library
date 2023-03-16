@@ -23,6 +23,17 @@ public class BookController {
         return "bookManagerView";
     }
 
+    @RequestMapping("/emptyCreateBook")
+    public String emptyCreateBook() {
+        return "createBook";
+    }
+
+    @RequestMapping("/createBook")
+    public String createBook(Book book){
+        bookService.createBook(book);
+        return "redirect:books";
+    }
+
     @RequestMapping("/bookCard")
     public String bookCard(@RequestParam("idBook") String id, Model model) {
         Book bookFound = bookService.getBook(id);

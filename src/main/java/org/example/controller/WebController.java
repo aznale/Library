@@ -12,16 +12,4 @@ public class WebController {
         return "home";
     }
 
-    @RequestMapping("hello")
-    public String helloHandler(){
-        return "hello";
-    }
-
-    @RequestMapping("userManagerView")
-    public  String userManagerView(){
-        return "userManagerView";
-    }
-
-
-
 }

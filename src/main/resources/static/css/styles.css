@@ -1,0 +1,33 @@
+    .centerButtons,h2,th{
+    text-align:center;
+    padding:6px;
+    }
+
+    td{
+    padding:3px;
+    }
+
+    .center{
+    text-align: center;
+    }
+
+    button{
+    color:blue;
+    }
+
+    table{
+    margin: 0 auto;
+    border-collapse: collapse;
+
+    }
+
+    /*tr:nth-child(even) {background-color: whitesmoke;}*/
+
+    th {
+    background-color: whitesmoke;
+    color: darkblue;
+    }
+
+    th, td {
+    border-bottom: 1px solid #ddd;
+    }

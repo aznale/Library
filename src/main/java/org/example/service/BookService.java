@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.manager.BookManager;
 import org.example.model.Book;
+import org.example.utils.DataValues;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +19,14 @@ public class BookService {
 
     public Map<String, Book> getAllBooks() {
         return books;
+    }
+
+    public void createBook(Book book){
+        int sumNewMaxId = DataValues.getIdBook();
+        String stringSumNewMaxId = String.format("%07d",sumNewMaxId);
+        book.setBookId(stringSumNewMaxId);
+        books.put(stringSumNewMaxId,book);
+        DataValues.setIdBook(sumNewMaxId+1);
     }
 
     public Book getBook(String id){

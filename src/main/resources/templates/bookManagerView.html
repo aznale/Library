@@ -5,44 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Manager View</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-    <style>
-    .centerButtons,h2,th{
-    text-align:center;
-    padding:6px;
-    }
-
-    td{
-    padding:3px;
-    }
-
-    .center{
-    text-align: center;
-    }
-
-    button{
-    color:blue;
-    }
-
-    table{
-    margin: 0 auto;
-    border-collapse: collapse;
-
-    }
-
-    /*tr:nth-child(even) {background-color: whitesmoke;}*/
-
-    th {
-    background-color: whitesmoke;
-    color: darkblue;
-    }
-
-    th, td {
-    border-bottom: 1px solid #ddd;
-    }
-
-
-    </style>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -90,8 +53,14 @@
     </table>
 
     <div class="centerButtons">
-        <a th:href="@{/user/emptyCreateUser}">
-            <button>Create User</button>
+        <a th:href="@{/book/emptyCreateBook}">
+            <button>Create Book</button>
+        </a>
+    </div>
+
+    <div class="centerButtons">
+        <a th:href="@{/}">
+            <button>Home</button>
         </a>
     </div>
 

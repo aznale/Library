@@ -11,6 +11,7 @@ public class DataValues {
     //TODO (2) e.g A0680-056 (where 056 is the library specific code)
     public static int idUser = 99;
     public static int idBook = 99;
+    public static int idLibrarian = 99;
     public static ArrayList<String> language = new ArrayList<>(List.of("Català","Castellà","Anglès"));
 
     // Works OK Alternative
@@ -37,6 +38,13 @@ public class DataValues {
         idBook = num;
     }
 
+    public static int getIdLibrarian() {
+        return idLibrarian;
+    }
+
+    public static void setIdLibrarian(int num) {
+        idLibrarian = num;
+    }
 
     public static String getLanguage(int index){
         return language.get(index);
