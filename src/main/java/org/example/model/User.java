@@ -24,4 +24,8 @@ public class User extends Person{
                 "idMember='" + idMember + '\'' +
                 "} " + super.toString();
     }
+
+    public String getNameSurname(){
+        return getName() + ' ' + getSurname();
+    }
 }

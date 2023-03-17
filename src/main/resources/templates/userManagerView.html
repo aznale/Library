@@ -22,8 +22,7 @@
             <th>Age</th>
             <th>Address</th>
             <th>Id Member</th>
-            <th>Delete</th>
-            <th>Update</th>
+            <th colspan="3">Operation</th>
 
         </tr>
         <tr th:each="user:${users}">
@@ -31,7 +30,7 @@
             <td th:text="${user.value.surname}"></td>
             <td th:text="${user.value.age}"></td>
             <td th:text="${user.value.address}"></td>
-            <td th:text="${user.value.idMember}"></td>
+            <td class="center" th:text="${user.value.idMember}"></td>
             <td>
                 <a th:href="@{deleteUser(idUser=${user.value.idMember})}">
                     <button>Delete</button>
@@ -41,6 +40,9 @@
                 <a th:href="@{userCard(idUser=${user.value.idMember})}">
                     <button>Update</button>
                 </a>
+            </td>
+            <td>
+                <button class="todo">Borrows</button>
             </td>
         </tr>
     </table>

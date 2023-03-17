@@ -14,7 +14,7 @@ public class BookService {
     public static Map<String, Book> books = new HashMap<>();
 
     static{
-        BookManager.createBooks(books,20);
+        BookManager.createBooks(books,100);
     }
 
     public Map<String, Book> getAllBooks() {

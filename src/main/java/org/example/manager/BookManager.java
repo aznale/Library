@@ -3,15 +3,10 @@ package org.example.manager;
 import com.github.javafaker.Faker;
 import org.example.model.Book;
 import org.example.utils.DataValues;
-import org.example.utils.Utils;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class BookManager {
-
-    //public static Map<String, Book> books = new HashMap<>();
 
     public static void createBooks(Map<String,Book> bookToMap, int numberBooks) {
         Faker faker = new Faker();
@@ -36,113 +31,8 @@ public class BookManager {
             sumNewMaxId++;
 
             bookToMap.put(newBook.getBookId(), newBook);
-            //System.out.println(newBook);
         }
 
         DataValues.setIdBook(sumNewMaxId);
-    }
-
-    public static void createBookToStorage(Map<String,Book> bookToMap,Scanner reader) {
-        System.out.println("CREATE a NEW Book: \n");
-        String bookId = String.valueOf(DataValues.getIdBook());
-        String ISBN = Utils.askString(reader, "ISBN: ");
-        String title = Utils.askString(reader, "Title: ");
-        String yearPublication = Utils.askString(reader, "Year publication: ");
-        String author = Utils.askString(reader, "Author: ");
-        String language = Utils.askString(reader, "Language: ");
-        String publisher = Utils.askString(reader, "Publisher: ");
-        String matter = Utils.askString(reader, "Matter: ");
-        boolean available = true;
-
-        Book addNewBook = new Book(bookId, ISBN, title, yearPublication, author, language, publisher, matter, available);
-        bookToMap.put(title, addNewBook);
-
-        DataValues.setIdBook(Integer.parseInt(bookId) + 1); // Actualize idBook +1
-
-        System.out.println("----- Book added successfully: -----" + addNewBook);
-    }
-
-/*    public static void deleteBook(Map<String,Book> bookToMap,Scanner reader) {
-        System.out.println("DELETE Book: \n");
-        String bookToDelete = Utils.askString(reader, "Book title to delete: ");
-        bookToMap.remove(bookToDelete);
-        System.out.println("----- Book deleted successfully: -----");
-
-
-
-    public static void updateBook(Map<String,Book> bookToMap,Scanner reader) {
-        String bookToUpdate = Utils.askString(reader, "Book to update: \n");
-
-        if (bookToMap.containsKey(bookToUpdate)) {
-            System.out.println(bookToMap.get(bookToUpdate));
-
-            while (true) {
-                String parameterToChange = Utils.askString(reader, "\nEnter the parameter number to change or write exit: \n");
-
-
-                switch (parameterToChange) {
-                    case "exit" -> {
-                        return;
-                    }
-                    case "1" -> System.out.println("Book Id is never change");
-                    case "2" -> {
-                        System.out.println("2 - ISBN: " + bookToMap.get(bookToUpdate).getISBN());
-                        String setISBN = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setISBN(setISBN);
-                        System.out.println("Updated successfully.\n2 - ISBN: " + bookToMap.get(bookToUpdate).getISBN());
-                    }
-                    case "3" -> {
-                        System.out.println("3 - Title: " + bookToMap.get(bookToUpdate).getTitle());
-                        String setTitle = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setTitle(setTitle);
-                        System.out.println("Updated successfully.\n3 - Title: " + bookToMap.get(bookToUpdate).getTitle());
-                    }
-                    case "4" -> {
-                        System.out.println("4 - Year Publication: " + bookToMap.get(bookToUpdate).getYearPublication());
-                        String setYearPublication = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setYearPublication(setYearPublication);
-                        System.out.println("Updated successfully.\n4 - Year Publication: " + bookToMap.get(bookToUpdate).getYearPublication());
-                    }
-                    case "5" -> {
-                        System.out.println("5 - Author: " + bookToMap.get(bookToUpdate).getAuthor());
-                        String setAuthor = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setAuthor(setAuthor);
-                        System.out.println("Updated successfully.\n5 - Author: " + bookToMap.get(bookToUpdate).getAuthor());
-                    }
-                    case "6" -> {
-                        System.out.println("6 - Language: " + bookToMap.get(bookToUpdate).getLanguage());
-                        String setLanguage = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setLanguage(setLanguage);
-                        System.out.println("Updated successfully.\n6 - Language: " + bookToMap.get(bookToUpdate).getLanguage());
-                    }
-                    case "7" -> {
-                        System.out.println("7 - Publisher: " + bookToMap.get(bookToUpdate).getPublisher());
-                        String setPublisher = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setPublisher(setPublisher);
-                        System.out.println("Updated successfully.\n7 - Publisher: " + bookToMap.get(bookToUpdate).getPublisher());
-                    }
-                    case "8" -> {
-                        System.out.println("8 - Matter: " + bookToMap.get(bookToUpdate).getMatter());
-                        String setMatter = Utils.askString(reader, "Change to: ");
-                        bookToMap.get(bookToUpdate).setMatter(setMatter);
-                        System.out.println("Updated successfully.\n8 - Matter: " + bookToMap.get(bookToUpdate).getMatter());
-                    }
-                    case "9" -> System.out.println("Change this parameter from the borrows section");
-                    default -> System.out.println("This parameter doesn't exist");
-                }
-            }
-        } else {
-            System.out.println(bookToUpdate + ": This book doesn't Exist");
-        }
-    }}*/
-
-    public static void getAllBooks(Map<String,Book> bookToMap){
-        System.out.println("All books in the Library:\n");
-        int i = 0;
-        for (String book: bookToMap.keySet()){
-            System.out.println(bookToMap.get(book));
-            i++;
-        }
-        System.out.println("Total Books: " + i);
     }
 }

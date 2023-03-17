@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Borrow Manager View</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div>
+
+    <h2>Borrow Manager View</h2>
+
+    <table>
+        <tr>
+            <th>Borrow Id</th>
+            <th>Initial Borrow</th>
+            <th>Due Date</th>
+            <th>Return Date</th>
+            <th>Borrow Status</th>
+            <th>Book Title</th>
+            <th>User</th>
+            <th>Library</th>
+            <th colspan="3">Operation</th>
+
+        </tr>
+        <tr th:each="borrow:${borrows}">
+            <td th:text="${borrow.value.borrowId}"></td>
+            <td th:text="${borrow.value.initialBorrow}"></td>
+            <td th:text="${borrow.value.dueDate}"></td>
+            <td th:text="${borrow.value.returnDate}"></td>
+            <td class="center" th:text="${borrow.value.borrowStatus}"></td>
+            <td th:text="${borrow.value.book.getTitle()}"></td>
+            <td th:text="${borrow.value.user.getNameSurname()}"></td>
+            <td class="center" th:text="${borrow.value.library}"></td>
+            <td>
+                <a>
+                    <button  class="todo">Return</button>
+                </a>
+            </td>
+            <td>
+                <a>
+                    <button  class="todo">Renovate</button>
+                </a>
+            </td>
+            <td>
+                <a>
+                    <button  class="todo">Historial</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div class="centerButtons">
+        <a th:href="@{/}">
+            <button>Home</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

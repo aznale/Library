@@ -12,9 +12,9 @@ import java.util.*;
 
 public class BorrowManager {
 
-    public static Map<String, Borrow> borrows = new HashMap<>();
+    //public static Map<String, Borrow> borrows = new HashMap<>();
 
-    public static void createBorrows(int borrowsNumber){
+    public static void createBorrows(Map<String, Borrow> borrowToMap, int borrowsNumber){
         Faker faker = new Faker();
 
         Borrow newBorrow;
@@ -44,8 +44,7 @@ public class BorrowManager {
 
             BookService.books.get(book).setAvailable(false); // on proof
 
-            borrows.put(idBorrow,newBorrow);
-            System.out.println(newBorrow);
+            borrowToMap.put(idBorrow,newBorrow);
 
         }
 

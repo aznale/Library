@@ -4,6 +4,10 @@
       box-sizing: border-box;
     }
 
+    .todo{
+    color:orangered;
+    }
+
     .centerButtons,h2,th{
     text-align:center;
     padding:6px;

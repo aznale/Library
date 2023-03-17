@@ -8,18 +8,27 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 
 </head>
-<body  class="home">
+<body class="home">
 
 <div>
-<h2>Home</h2>
+    <h2>Home</h2>
 
 
-
-<a th:href="@{user/users}"><button>Users Manager</button></a>
-<br><br>
-<a th:href="@{book/books}"><button>Book Manager</button></a>
-<br><br>
-<a th:href="@{librarian/librarians}"><button>Librarian Manager</button></a>
+    <a th:href="@{user/users}">
+        <button>Users Manager</button>
+    </a>
+    <br><br>
+    <a th:href="@{book/books}">
+        <button>Book Manager</button>
+    </a>
+    <br><br>
+    <a th:href="@{librarian/librarians}">
+        <button>Librarian Manager</button>
+    </a>
+    <br><br>
+    <a th:href="@{borrow/borrows}">
+        <button>Borrow Manager</button>
+    </a>
 
 </div>
 </body>

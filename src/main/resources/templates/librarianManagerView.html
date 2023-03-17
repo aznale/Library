@@ -21,8 +21,7 @@
             <th>Age</th>
             <th>Address</th>
             <th>Id Librarian</th>
-            <th>Delete</th>
-            <th>Update</th>
+            <th colspan="2">Operation</th>
 
         </tr>
         <tr th:each="librarian:${librarians}">
@@ -30,7 +29,7 @@
             <td th:text="${librarian.value.surname}"></td>
             <td th:text="${librarian.value.age}"></td>
             <td th:text="${librarian.value.address}"></td>
-            <td th:text="${librarian.value.idLibrarian}"></td>
+            <td class="center" th:text="${librarian.value.idLibrarian}"></td>
             <td>
                 <a th:href="@{deleteLibrarian(idLibrarian=${librarian.value.idLibrarian})}">
                     <button>Delete</button>
