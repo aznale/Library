@@ -42,9 +42,13 @@ public class BorrowManager {
 
             );
 
-            BookService.books.get(book).setAvailable(false); // on proof
 
-            borrowToMap.put(idBorrow,newBorrow);
+            if(BookService.books.get(book).isAvailable()){
+                BookService.books.get(book).setAvailable(false); // on proof
+                borrowToMap.put(idBorrow,newBorrow);
+            }else{
+                i--;
+            }
 
         }
 

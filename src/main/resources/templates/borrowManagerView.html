@@ -35,8 +35,8 @@
             <td th:text="${borrow.value.user.getNameSurname()}"></td>
             <td class="center" th:text="${borrow.value.library}"></td>
             <td>
-                <a>
-                    <button  class="todo">Return</button>
+                <a th:href="@{returnBook(idBorrow=${borrow.value.borrowId},idBook=${borrow.value.book.getBookId()})}">
+                    <button>Return</button>
                 </a>
             </td>
             <td>

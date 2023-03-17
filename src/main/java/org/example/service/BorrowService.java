@@ -13,10 +13,14 @@ public class BorrowService {
     public static Map<String, Borrow> borrows = new HashMap<>();
 
     static {
-        BorrowManager.createBorrows(borrows,10);
+        BorrowManager.createBorrows(borrows,20);
     }
 
     public Map<String, Borrow> getBorrows(){
         return borrows;
+    }
+
+    public Borrow getBorrow(String id){
+        return borrows.get(id);
     }
 }

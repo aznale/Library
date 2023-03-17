@@ -59,12 +59,11 @@ public class BookController {
     @RequestMapping("/deleteBook")
     public String deleteBook(@RequestParam("idBook") String id) {
         Book bookFound = bookService.getBook(id);
-        System.out.println(bookFound);
         if (bookFound != null) {
             bookService.deleteBook(id);
             return "redirect:/book/books";
         }
-        return "home"; // TODO implement bookNot Found and this template
+        return "home"; // TODO implement bookNotFound and this template
     }
 
 }
