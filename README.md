@@ -4,12 +4,11 @@
 
 Library project for control borrows and users manager with:
 
+- Java
 - Maven
 - Javafaker
 - Lombok
 - Spring
 - Spring boot
-- H2
 - Thymeleaf
 - Html
-
