@@ -14,9 +14,9 @@
 
     <table>
         <tr>
-            <th>Borrow Id</th>
             <th>Initial Borrow</th>
             <th>Due Date</th>
+            <th>Borrow Days</th>
             <th>Return Date</th>
             <th>Borrow Status</th>
             <th>Book Title</th>
@@ -26,10 +26,10 @@
 
         </tr>
         <tr th:each="borrow:${borrows}">
-            <td th:text="${borrow.value.borrowId}"></td>
-            <td th:text="${borrow.value.initialBorrow}"></td>
-            <td th:text="${borrow.value.dueDate}"></td>
-            <td th:text="${borrow.value.returnDate}"></td>
+            <td class="center" th:text="${borrow.value.initialBorrow.toLocalDate}"></td>
+            <td class="center" th:text="${borrow.value.dueDate.toLocalDate}"></td>
+            <td class="center" th:text="${borrow.value.borrowDays}"></td>
+            <td class="center" th:text="${borrow.value.returnDate?.toLocalDate}"></td>
             <td class="center" th:text="${borrow.value.borrowStatus}"></td>
             <td th:text="${borrow.value.book.getTitle()}"></td>
             <td th:text="${borrow.value.user.getNameSurname()}"></td>
@@ -40,8 +40,8 @@
                 </a>
             </td>
             <td>
-                <a>
-                    <button  class="todo">Renovate</button>
+                <a th:href="@{renovateBook(idBorrow=${borrow.value.borrowId})}">
+                    <button>Renovate</button>
                 </a>
             </td>
             <td>

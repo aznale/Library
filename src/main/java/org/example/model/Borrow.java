@@ -15,6 +15,7 @@ public class Borrow {
     private String borrowId;
     private LocalDateTime initialBorrow;     // https://www.delftstack.com/es/howto/java/how-to-add-one-day-to-a-date-in-java/
     private LocalDateTime dueDate;
+    private int borrowDays;
     private LocalDateTime returnDate;
     private String borrowStatus;
     private Book book;
@@ -26,6 +27,7 @@ public class Borrow {
         return  "borrowId = " + borrowId + '\n' +
                 "initialBorrow = " + initialBorrow + '\n' +
                 "dueDate = " + dueDate +'\n' +
+                "borrowDays = " + borrowDays +'\n' +
                 "returnDate = " + returnDate +'\n' +
                 "borrowStatus = " + borrowStatus +'\n' +
                 "book = " + book.getTitle() +'\n' +

@@ -34,6 +34,7 @@ public class BorrowManager {
                     idBorrow,
                     date,
                     date.plusDays(30),
+                    30,
                     null,
                     "Borrowed",
                     BookService.books.get(book),

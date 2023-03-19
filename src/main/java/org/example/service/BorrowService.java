@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.manager.BorrowManager;
 import org.example.model.Borrow;
+import org.example.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -23,4 +24,6 @@ public class BorrowService {
     public Borrow getBorrow(String id){
         return borrows.get(id);
     }
+
+
 }
