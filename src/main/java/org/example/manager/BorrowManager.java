@@ -45,8 +45,9 @@ public class BorrowManager {
 
 
             if(BookService.books.get(book).isAvailable()){
-                BookService.books.get(book).setAvailable(false); // on proof
+                BookService.books.get(book).setAvailable(false);
                 borrowToMap.put(idBorrow,newBorrow);
+                UserService.users.get(user).getUserBorrows().add(idBorrow); // on proof
             }else{
                 i--;
             }

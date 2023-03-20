@@ -2,9 +2,9 @@ package org.example.service;
 
 import org.example.manager.BorrowManager;
 import org.example.model.Borrow;
-import org.example.model.User;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +23,18 @@ public class BorrowService {
 
     public Borrow getBorrow(String id){
         return borrows.get(id);
+    }
+
+    public Map<String, Borrow> getBorrowsById(ArrayList<String> idBorrowsByUser){
+        Map<String, Borrow> borrowsById = new HashMap<>();
+        for ( String idBorrow: idBorrowsByUser) {
+            for (String borrow : borrows.keySet()) {
+                if(borrow.equals(idBorrow)){
+                    borrowsById.put(idBorrow,borrows.get(borrow));
+                }
+            }
+        }
+        return  borrowsById;
     }
 
 
