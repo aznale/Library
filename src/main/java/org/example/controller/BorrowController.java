@@ -60,6 +60,10 @@ public class BorrowController {
         return "redirect:/borrow/borrows";
     }
 
+    @RequestMapping("/emptyCreateBorrow")
+    public String emptyCreateBorrow(){
+        return "createBorrow";
+    }
 
 
 

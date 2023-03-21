@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>login</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+<body class="home">
+
+<div>
+    <h2>Login</h2>
+
+    <div th:if="${session.isLogin}">
+        <p>Log out:</p>
+        <a th:href="@{logout}"></a> <!--TODO-->
+    </div>
+
+    <div th:unless="${session.isLogin}">
+
+        <form th:action="@{/home}" method="post">
+            <input type="hidden" name="userSelection" value="false">
+
+            <label for="librarianSelection">Choose Librarian for Log in</label>
+            <select id="librarianSelection">
+                <option>Empty Selection</option>
+                <option th:each="librarian:${librarians}" th:value="${librarian.idLibrarian}" th:text="${librarian.name + '-' + librarian.idLibrarian}">Librarian</option>
+            </select>
+            <button type="submit">Log in</button>
+        </form>
+
+        <form th:action="@{/home}" method="post">
+            <input type="hidden" name="librarianSelection" value="false">
+
+            <label for="userSelection">Choose User for Log in</label>
+            <select id="userSelection">
+                <option>Empty Selection</option>
+                <option th:each="user:${users}" th:value="${user.idMember}" th:text="${user.name + '-' + user.idMember}">User</option>
+            </select>
+            <button type="submit">Log in</button>
+        </form>
+
+    </div>
+
+</div>
+</body>
+</html>
