@@ -8,26 +8,64 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 
 </head>
-<body class="home">
+<body>
 
 <div>
     <h2>Home</h2>
 
+    <table>
+        <tr>
+            <th>Today Date</th>
+            <td th:text="${session.todayDate}"></td>
+        </tr>
+        <tr>
+            <th>Session Id</th>
+            <td th:text="${session.sessionId}"></td>
+        </tr>
+        <tr>
+            <th>Session Count</th>
+            <td th:text="${session.sessionCount}"></td>
+        </tr>
+        <tr>
+            <th>Request Count</th>
+            <td th:text="${session.requestCount}"></td>
+        </tr>
+        <tr>
+            <th>Librarian Id</th>
+            <td th:text="${session.librarianId}"></td>
+        </tr>
+        <tr>
+            <th>User ID</th>
+            <td th:text="${session.userId}"></td>
+        </tr>
+        <tr>
+            <th>Http Servlet Request Headers</th>
+            <td th:text="${session.httpServletRequestHeaders}"></td>
+        </tr>
+    </table>
 
-    <a th:href="@{user/users}">
+
+</div>
+
+<div class="center">
+    <a class="mg-l" th:if="${session.librarianId}" th:href="@{user/users}">
         <button>Users Manager</button>
     </a>
-    <br><br>
-    <a th:href="@{book/books}">
+
+    <a class="mg-l"  th:href="@{book/books}">
         <button>Book Manager</button>
     </a>
-    <br><br>
-    <a th:href="@{librarian/librarians}">
+
+    <a class="mg-l"  th:if="${session.librarianId}" th:href="@{librarian/librarians}">
         <button>Librarian Manager</button>
     </a>
-    <br><br>
-    <a th:href="@{borrow/borrows}">
+
+    <a class="mg-l"  th:href="@{borrow/borrows}">
         <button>Borrow Manager</button>
+    </a>
+
+    <a class="mg-l"  th:if="${session.isLogin}" th:href="@{logout}">
+        <button>Logout</button>
     </a>
 
 </div>

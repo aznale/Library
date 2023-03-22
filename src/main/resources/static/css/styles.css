@@ -49,7 +49,7 @@
 
     .home {
     height: 100vh;
-    min-height:600px;
+    min-height:800px;
     }
 
     .home>div{
@@ -59,4 +59,8 @@
       transform: translate(-50%,-50%);
       max-width: 50%;
       text-align: center;
+    }
+
+    .mg-l{
+    margin: 6px;
     }

@@ -15,16 +15,16 @@
 
     <div th:if="${session.isLogin}">
         <p>Log out:</p>
-        <a th:href="@{logout}"></a> <!--TODO-->
+        <a th:href="@{logout}">Logout</a>
     </div>
 
     <div th:unless="${session.isLogin}">
 
         <form th:action="@{/home}" method="post">
-            <input type="hidden" name="userSelection" value="false">
+            <input type="hidden" name="userIdFromSelect" id="userIdFromSelect" value="false">
 
             <label for="librarianSelection">Choose Librarian for Log in</label>
-            <select id="librarianSelection">
+            <select id="librarianSelection" name="librarianIdFromSelect">
                 <option>Empty Selection</option>
                 <option th:each="librarian:${librarians}" th:value="${librarian.idLibrarian}" th:text="${librarian.name + '-' + librarian.idLibrarian}">Librarian</option>
             </select>
@@ -32,10 +32,10 @@
         </form>
 
         <form th:action="@{/home}" method="post">
-            <input type="hidden" name="librarianSelection" value="false">
+            <input type="hidden" name="librarianIdFromSelect" id="librarianIdFromSelect" value="false">
 
             <label for="userSelection">Choose User for Log in</label>
-            <select id="userSelection">
+            <select id="userSelection" name="userIdFromSelect">
                 <option>Empty Selection</option>
                 <option th:each="user:${users}" th:value="${user.idMember}" th:text="${user.name + '-' + user.idMember}">User</option>
             </select>
