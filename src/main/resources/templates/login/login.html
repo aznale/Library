@@ -25,7 +25,7 @@
 
             <label for="librarianSelection">Choose Librarian for Log in</label>
             <select id="librarianSelection" name="librarianIdFromSelect">
-                <option>Empty Selection</option>
+                <option value="Empty Selection">Empty Selection</option>
                 <option th:each="librarian:${librarians}" th:value="${librarian.idLibrarian}" th:text="${librarian.name + '-' + librarian.idLibrarian}">Librarian</option>
             </select>
             <button type="submit">Log in</button>
@@ -36,7 +36,7 @@
 
             <label for="userSelection">Choose User for Log in</label>
             <select id="userSelection" name="userIdFromSelect">
-                <option>Empty Selection</option>
+                <option value="Empty Selection">Empty Selection</option>
                 <option th:each="user:${users}" th:value="${user.idMember}" th:text="${user.name + '-' + user.idMember}">User</option>
             </select>
             <button type="submit">Log in</button>

@@ -40,7 +40,11 @@ public class HomeController {
     @RequestMapping("/home")
     public String getHome(Model model, HttpSession session) {
         session.setAttribute("requestCount", getRequestCount(session));
-        return "home";
+        if ((boolean) session.getAttribute("isLogin")) {
+            return "home";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.POST)
@@ -48,7 +52,9 @@ public class HomeController {
 
         session.setAttribute("requestCount", getRequestCount(session));
 
-        if (!((boolean) session.getAttribute("isLogin"))) {
+        boolean empty = librarianId.contains("Empty Selection") || userId.contains("Empty Selection");
+
+        if (!((boolean) session.getAttribute("isLogin")) && !empty) {
             this.sessionsId.add(session.getId());
 
             session.setAttribute("librarianId", librarianId);
@@ -58,11 +64,11 @@ public class HomeController {
             session.setAttribute("sessionId", session.getId());
             session.setAttribute("sessionCount", this.sessionsId.size());
 
-            Map<String, String> headerNamesMap = new HashMap<String, String>();
+            Map<String, String> headerNamesMap = new HashMap<>();
 
             Enumeration<String> headerNames = request.getHeaderNames();
             while (headerNames.hasMoreElements()) {
-                String key = (String) headerNames.nextElement();
+                String key = headerNames.nextElement();
                 String value = request.getHeader(key);
                 headerNamesMap.put(key, value);
             }
