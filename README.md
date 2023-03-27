@@ -12,3 +12,4 @@ Library project for control borrows and users manager with:
 - Spring boot
 - Thymeleaf
 - Html
+- H2
