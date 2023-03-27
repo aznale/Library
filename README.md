@@ -13,3 +13,5 @@ Library project for control borrows and users manager with:
 - Thymeleaf
 - Html
 - Postman
+- H2
+- Git
