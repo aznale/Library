@@ -11,9 +11,4 @@ Library project for control borrows and users manager with:
 - Spring
 - Spring boot
 - Thymeleaf
-- Html
 - Postman
-- H2
-- Git
-- -...
-- 
