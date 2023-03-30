@@ -3,10 +3,7 @@ package org.example.restcontroller;
 import org.example.model.Book;
 import org.example.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -23,9 +20,22 @@ public class BookRestController {
     }
 
     @GetMapping("/aBook")
-    public Book getBook(String id){
+    public Book getBook(@RequestParam("bookId") String id){
         return  bookService.getBook(id);
     }
 
+    @PostMapping("/createBook")
+    public String createBook(@RequestBody Book book){
+        bookService.createBook(book);
+        return "Book created: \n" + bookService.getBook(book.getBookId()).toString();
+    }
+
+    @DeleteMapping("/deleteBook")
+    public  String deleteBook(@RequestParam("bookId") String id){
+        String bookDeleted = bookService.getBook(id).toString();
+        bookService.deleteBook(id);
+        return "Book deleted: \n" + bookDeleted;
+
+    }
 
 }
