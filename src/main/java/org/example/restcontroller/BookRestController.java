@@ -15,26 +15,24 @@ public class BookRestController {
     BookService bookService;
 
     @GetMapping("/books")
-    public Map<String, Book> getAllBooks(){
+    public Map<String, Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
     @GetMapping("/aBook")
-    public Book getBook(@RequestParam("bookId") String id){
-        return  bookService.getBook(id);
+    public Book getBook(@RequestParam("bookId") String id) {
+        return bookService.getBook(id);
     }
 
     @PostMapping("/createBook")
-    public String createBook(@RequestBody Book book){
+    public String createBook(@RequestBody Book book) {
         bookService.createBook(book);
         return "Book created: \n" + bookService.getBook(book.getBookId()).toString();
     }
 
     @DeleteMapping("/deleteBook")
-    public  String deleteBook(@RequestParam("bookId") String id){
-        String bookDeleted = bookService.getBook(id).toString();
-        bookService.deleteBook(id);
-        return "Book deleted: \n" + bookDeleted;
+    public String deleteBook(@RequestParam("bookId") String id) {
+        return bookService.deleteBook(id);
 
     }
 

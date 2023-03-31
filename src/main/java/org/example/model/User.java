@@ -23,6 +23,10 @@ public class User extends Person{
         this.userBorrows = new ArrayList<>();
     }
 
+    public String getNameSurname(){
+        return getName() + ' ' + getSurname();
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -30,8 +34,5 @@ public class User extends Person{
                 "} " + super.toString();
     }
 
-    public String getNameSurname(){
-        return getName() + ' ' + getSurname();
-    }
 
 }
