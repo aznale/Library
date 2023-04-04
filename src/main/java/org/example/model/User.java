@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 @EqualsAndHashCode(callSuper = true)
@@ -25,6 +27,31 @@ public class User extends Person{
 
     public String getNameSurname(){
         return getName() + ' ' + getSurname();
+    }
+
+    public void update(User other) {
+        Class<?> clazz = getClass();
+        Field[] fields = clazz.getDeclaredFields();
+        System.out.println(clazz);
+        System.out.println(Arrays.toString(fields));
+        Arrays.stream(fields)
+                .filter(field -> {
+                    try {
+                        Object value = field.get(other);
+                        return value != null &&
+                                (!(value instanceof Number) || ((Number) value).intValue() != 0) &&
+                                (!(value instanceof Boolean) || (Boolean) value);
+                    } catch (IllegalAccessException e) {
+                        return false;
+                    }
+                })
+                .forEach(field -> {
+                    try {
+                        field.set(this, field.get(other));
+                    } catch (IllegalAccessException e) {
+                        // Handle exception
+                    }
+                });
     }
 
     @Override

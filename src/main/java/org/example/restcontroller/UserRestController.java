@@ -36,4 +36,10 @@ public class UserRestController {
     }
 
 
+    @PutMapping("/updateUser/{id}")
+    public String updateUser(@PathVariable String id, @RequestBody User dataUser){
+        return userService.updateUser(id, dataUser);
+    }
+
+
 }

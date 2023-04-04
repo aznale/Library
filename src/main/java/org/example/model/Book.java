@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.lang.reflect.Field;
+import java.util.Arrays;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,9 +19,34 @@ public class Book {
     private String language;
     private String publisher;
     private String matter;
-    private boolean available = true; // For control individual borrow
+    private boolean available; // For control individual borrow
 
     // TODO * add att.code of specific library to which the book belongs
+
+
+
+    public void update(Book other) {
+        Class<?> clazz = getClass();
+        Field[] fields = clazz.getDeclaredFields();
+
+        Arrays.stream(fields)
+                .filter(field -> {
+                    try {
+                        Object value = field.get(other);
+                        return value != null &&
+                                (!(value instanceof Number) || ((Number) value).intValue() != 0);
+                    } catch (IllegalAccessException e) {
+                        return false;
+                    }
+                })
+                .forEach(field -> {
+                    try {
+                        field.set(this, field.get(other));
+                    } catch (IllegalAccessException e) {
+                        // Handle exception
+                    }
+                });
+    }
 
     @Override
     public String toString() {

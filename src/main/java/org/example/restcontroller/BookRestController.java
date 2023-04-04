@@ -36,4 +36,9 @@ public class BookRestController {
 
     }
 
+    @PutMapping("/updateBook/{id}")
+    public String updateBook(@PathVariable String id, @RequestBody Book dataBook) {
+        return bookService.updateBook(id, dataBook);
+    }
+
 }
