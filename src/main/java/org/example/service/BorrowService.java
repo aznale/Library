@@ -25,6 +25,10 @@ public class BorrowService {
         return borrows.get(id);
     }
 
+    public void createBorrow(Borrow borrow){
+
+    }
+
     public Map<String, Borrow> getBorrowsById(ArrayList<String> idBorrowsByUser){
         Map<String, Borrow> borrowsById = new HashMap<>();
         for ( String idBorrow: idBorrowsByUser) {
@@ -36,6 +40,7 @@ public class BorrowService {
         }
         return  borrowsById;
     }
+
 
 
 }
