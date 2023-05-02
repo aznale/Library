@@ -25,5 +25,10 @@ public class BorrowRestController {
         return borrowService.getBorrow(id);
     }
 
+    @PostMapping("/createBorrow")
+    public String createBorrow(@RequestParam("bookId") String bookId, @RequestParam("userId") String userId){
+        return  borrowService.createBorrow(bookId, userId);
+    }
+
 
 }
