@@ -33,7 +33,6 @@ public class BookRestController {
     @DeleteMapping("/deleteBook")
     public String deleteBook(@RequestParam("bookId") String id) {
         return bookService.deleteBook(id);
-
     }
 
     @PutMapping("/updateBook/{id}")

@@ -29,47 +29,55 @@ public class BorrowService {
         return borrows.get(id);
     }
 
-    public String createBorrow(String bookId, String userId) {
-        String response = "";
-        String errors = "";
+    public HashMap<String, String> createBorrow(String bookId, String userId) {
+
+        HashMap<String, String> borrow = new HashMap<>();
+
+        User user = UserService.users.get(userId);
+        if (user == null) {
+            borrow.put("statusDescription", "User doesn't exist." + userId);
+            borrow.put("status", "fail");
+            return borrow;
+        }
+
+        Book book = BookService.books.get(bookId);
+        if (book == null) {
+            borrow.put("statusDescription", "Book doesn't exist." + bookId);
+            borrow.put("status", "fail");
+            return borrow;
+        }
+
+        if (!BookService.books.get(bookId).isAvailable()) {
+            borrow.put("statusDescription", "Book is on Borrow" + book);
+            borrow.put("status", "onBorrow");
+            return borrow;
+        }
 
         Borrow newBorrow;
 
         String idBorrow = DataValues.createUUID();
         LocalDateTime date = LocalDateTime.now();
-        Book book = BookService.books.get(bookId);
-        User user = UserService.users.get(userId);
 
-        //System.out.println(book);
-        //System.out.println(user);
+        newBorrow = new Borrow(
+                idBorrow,
+                date,
+                date.plusDays(30),
+                30,
+                null,
+                "Borrowed",
+                book,
+                user,
+                "033"
+        );
 
-        if (user == null) {
-            errors += "User not exist. ";
-        }else if (book == null){
-            errors += "Book not exist. ";
-        }else{
-            newBorrow = new Borrow(
-                    idBorrow,
-                    date,
-                    date.plusDays(30),
-                    30,
-                    null,
-                    "Borrowed",
-                    book,
-                    user,
-                    "033"
-            );
 
-            if (BookService.books.get(bookId).isAvailable()) {
-                BookService.books.get(bookId).setAvailable(false);
-                borrows.put(idBorrow,newBorrow);
-                response += "Borrow created successfully. \n" + newBorrow;
-            }else{
-                response += "Book is on borrow.";
-            }
-        }
+        BookService.books.get(bookId).setAvailable(false);
+        borrows.put(idBorrow, newBorrow);
+        borrow.put("statusDescription", "Borrow created successfully." + newBorrow);
+        borrow.put("status", "succes");
 
-        return  response + errors;
+
+        return borrow;
     }
 
     public Map<String, Borrow> getBorrowsById(ArrayList<String> idBorrowsByUser) {
