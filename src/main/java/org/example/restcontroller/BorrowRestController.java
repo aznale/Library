@@ -5,6 +5,7 @@ import org.example.model.Borrow;
 import org.example.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,7 +45,7 @@ public class BorrowRestController {
             headers.add("statusOperation", "succes");
         }
 
-        return ResponseEntity.accepted().headers(headers).body(createdBorrow).get("statusDescription");
+        return new ResponseEntity<>(createdBorrow.get("statusDescription"),headers, HttpStatus.OK);
     }
 
 

@@ -48,7 +48,7 @@ public class BorrowService {
         }
 
         if (!BookService.books.get(bookId).isAvailable()) {
-            borrow.put("statusDescription", "Book is on Borrow" + book);
+            borrow.put("statusDescription", "Book is on Borrow \n" + book);
             borrow.put("status", "onBorrow");
             return borrow;
         }
@@ -73,7 +73,7 @@ public class BorrowService {
 
         BookService.books.get(bookId).setAvailable(false);
         borrows.put(idBorrow, newBorrow);
-        borrow.put("statusDescription", "Borrow created successfully." + newBorrow);
+        borrow.put("statusDescription", "Borrow created successfully. \n" + newBorrow);
         borrow.put("status", "succes");
 
 
