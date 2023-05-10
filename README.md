@@ -10,5 +10,4 @@ Library project for control borrows and users manager with:
 - Lombok
 - Spring
 - Spring boot
-- Thymeleaf
 - Postman
